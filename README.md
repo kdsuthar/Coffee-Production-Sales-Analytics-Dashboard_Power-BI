@@ -1,77 +1,78 @@
-# Coffee-Production-Sales-Analytics-Dashboard_Power-BI
-Scope & Goal: Developed an end-to-end Power BI solution to monitor the coffee-bean supply chain—tracking daily production, monthly output, inventory levels, and sales rate—so managers could quickly spot bottlenecks, excess stock, and demand spikes.
-Step-by-Step Analysis Process
-1. Understanding Business Problem
-Objective: Analyze coffee production, sales, and inventory data to identify trends, imbalances, and decision-making opportunities.
+# Coffee-Production-Sales-Analytics-Dashboard_Power-BI:
 
-Key questions:
+## Scope & Goal: 
+Developed an end-to-end Power BI solution to monitor the coffee-bean supply chain—tracking daily production, monthly output, inventory levels, and sales rate—so managers could quickly spot bottlenecks, excess stock, and demand spikes.
 
-Which bean types are overproduced or underperforming?
+ ### Objective: 
+ Analyze coffee production, sales, and inventory data to identify trends, imbalances, and decision-making opportunities.
 
-Are sales aligned with production?
+## Key questions:
 
-How much inventory is moving each month?
+1. Which bean types are overproduced or underperforming?
 
-2. Data Collection
-Data sources:
+2. Are sales aligned with production?
 
-Daily table – daily production volumes by bean type.
+3. How much inventory is moving each month?
 
-Monthly table – monthly summaries of production and inventory.
+ ## Data Collection
 
-InventSale table – inventory levels vs. sales volumes by product.
+1. Daily table – daily production volumes by bean type.
 
-Each file contained relevant fields such as Date, Bean Type, Produced Units, Sold Units, and Inventory.
+2. Monthly table – monthly summaries of production and inventory.
 
-3. Data Cleaning & Preparation (Power Query)
-Removed nulls, fixed data types (e.g., dates, integers).
+3. InventSale table – inventory levels vs. sales volumes by product.
 
-Merged/normalized tables to ensure consistency.
+### Each file contained relevant fields such as Date, Bean Type, Produced Units, Sold Units, and Inventory.
 
-Created custom columns like:
+ ## Data Cleaning & Preparation (Power Query)
+1. Removed nulls, fixed data types (e.g., dates, integers).
 
-Month-Year for time series analysis.
+2. Merged/normalized tables to ensure consistency.
 
-Calculated fields to compute metrics such as:
+3. Created custom columns like:
 
-Total Production
+4. Month-Year for time series analysis.
 
-Inventory Carry Forward
+5. Calculated fields to compute metrics such as:
 
-Sales Units
+6. Total Production
 
-4. Data Modelling
-Designed star schema:
+7. Inventory Carry Forward
 
-Fact Table: Merged data of Production + Sales + Inventory.
+8. Sales Units
 
-Dimension Tables: Date, Product/Bean Type.
+## Data Modelling
+1. Designed star schema:
 
-Established relationships using primary/foreign keys (e.g., DateID, BeanID).
+2. Fact Table: Merged data of Production + Sales + Inventory.
 
-5. KPI Development (DAX)
-Built DAX measures to answer key business queries:
+3. Dimension Tables: Date, Product/Bean Type.
 
-Total Production = SUM(Daily[Produced Units])
+4. Established relationships using primary/foreign keys (e.g., DateID, BeanID).
 
-Total Sales = SUM(InventSale[Sold Units])
+## KPI Development (DAX)
+### Built DAX measures to answer key business queries:
 
-Inventory Days = DIVIDE([Inventory Units], [Daily Avg Sales])
+1. Total Production = SUM(Daily[Produced Units])
 
-MoM Sales Change = (Current Month - Previous Month Sales) / Previous Month Sales
+2. Total Sales = SUM(InventSale[Sold Units])
 
-6. Dashboard Design
-Created 3 analytical report pages:
+3. Inventory Days = DIVIDE([Inventory Units], [Daily Avg Sales])
 
-Daily Report: Line charts showing daily production trends by bean type.
+4. MoM Sales Change = (Current Month - Previous Month Sales) / Previous Month Sales
 
-Monthly Summary: Combo charts (production vs. sales), slicers for bean type and month.
+## Dashboard Design
+### Created 3 analytical report pages:
 
-Inventory vs Sales: Scatter chart showing excess stock or sales gaps.
+1. Daily Report: Line charts showing daily production trends by bean type.
 
-Features added:
+2. Monthly Summary: Combo charts (production vs. sales), slicers for bean type and month.
 
-Tooltips, slicers, filters, bookmarks
+3. Inventory vs Sales: Scatter chart showing excess stock or sales gaps.
 
-Clean color theme for visual consistency
+## Features added:
+
+1. Tooltips, slicers, filters, bookmarks
+
+2. Clean color theme for visual consistency
 
